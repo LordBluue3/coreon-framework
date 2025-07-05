@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Controllers{{namespace}};
+
+use App\Controllers\BaseController;
+
+class {{name}} extends BaseController
+{
+    public function index()
+    {
+        //
+    }
+}
