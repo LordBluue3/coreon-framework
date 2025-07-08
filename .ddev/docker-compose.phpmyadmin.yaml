@@ -1,0 +1,14 @@
+version: '3.6'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ddev-${DDEV_SITENAME}-phpmyadmin
+    ports:
+      - "8036:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: db
+      PMA_PASSWORD: db
+    depends_on:
+      - db

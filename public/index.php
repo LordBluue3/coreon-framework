@@ -1,3 +1,3 @@
 <?php
 
-require "../boostrap.php";
+require "../boostrap/boostrap.php";

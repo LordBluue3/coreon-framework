@@ -2,8 +2,8 @@
 
 use Core\Router;
 
-require "vendor/autoload.php";
-require "app/Helpers/helper.php";
+require "../vendor/autoload.php";
+require "../app/Helpers/helper.php";
 
 // load the routes
 require __DIR__ . '/../routes/api.php';

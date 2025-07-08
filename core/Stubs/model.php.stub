@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Models{{namespace}};
+
+use Core\Model;
+
+class {{name}} extends Model
+{
+    
+}

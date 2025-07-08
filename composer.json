@@ -4,8 +4,5 @@
             "App\\":"app",
             "Core\\":"core"
         }
-    },
-    "require": {
-        "jenssegers/blade": "^2.0"
     }
 }
