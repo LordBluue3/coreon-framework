@@ -33,8 +33,15 @@ class Router
         $action = self::$routes[$httpMethod][$uri] ?? null;
 
         if (!$action) {
+
             http_response_code(404);
-            echo "404 - Not Found";
+            $viewPath = __DIR__ . '/../resource/views/errors/404.php';
+
+            if (!file_exists($viewPath)) {
+                echo "404 - Página não encontrada";
+                die;
+            }
+            require $viewPath;
             die();
         }
 

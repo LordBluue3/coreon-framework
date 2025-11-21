@@ -3,6 +3,7 @@
 use Core\Router;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/core/ErrorHandler.php';
 require_once dirname(__DIR__) . '/app/Helpers/helper.php';
 require_once dirname(__DIR__) . '/core/Helpers/coreon.php';
 require_once dirname(__DIR__) . '/routes/api.php';

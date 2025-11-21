@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erro 404 - Coreon Framework</title>
+    <title>Erro 500 - Coreon Framework</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -86,8 +86,8 @@
     <canvas id="stars"></canvas>
 
     <div class="container">
-        <h1>404</h1>
-        <p>A página que você está procurando não foi encontrada.</p>
+        <h1>500</h1>
+        <p>Ocorreu um erro inesperado. Estamos trabalhando para resolver o problema.</p>
         <a href="/" class="button">Voltar para a Home</a>
 
         <footer>&copy; 2025 Mikael Oliveira</footer>
