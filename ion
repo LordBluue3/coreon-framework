@@ -3,6 +3,6 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use App\Classes\Ion;
+use Core\Ion;
 
 Ion::handle($argv);

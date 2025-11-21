@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Core\Model;
 
-class Contact extends Model
+class test extends Model
 {
     
 }
