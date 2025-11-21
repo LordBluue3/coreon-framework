@@ -104,7 +104,7 @@ class Ion
 
     private static function startServer(): void
     {
-        $publicPath = realpath(__DIR__ . '/../../public');
+        $publicPath = realpath(__DIR__ . '/../public');
 
         if ($publicPath === false) {
             throw new RuntimeException('Public path não encontrado.');
