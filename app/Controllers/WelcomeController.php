@@ -8,7 +8,7 @@ class WelcomeController extends BaseController
 {
     public function index()
     {
-        $data = ['name' => 'Coren Framework'];
+        $data = ['name' => 'Coreon Framework'];
         $this->view('pages.welcome', $data);
     }
 }

@@ -6,30 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coreon Framework</title>
     <style>
-        /* Reset básico */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #e0f2ff, #f4f6f8);
-            color: #333;
+            background: linear-gradient(to bottom, #0d1b2a, #1d2d50);
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            animation: backgroundShift 20s infinite alternate;
+            overflow: hidden;
+            position: relative;
         }
 
-        @keyframes backgroundShift {
-            0% { background-position: 0 0; }
-            100% { background-position: 100% 100%; }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
 
         .container {
-            background: #fff;
+            position: relative;
+            z-index: 1;
+            background: rgba(15, 40, 70, 0.85);
             padding: 2.5rem 3rem;
             border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
             text-align: center;
             max-width: 500px;
             animation: fadeIn 1s ease forwards;
@@ -68,41 +74,17 @@
             transform: scale(1.05);
         }
 
-        .features {
-            margin-top: 2rem;
-            text-align: left;
-        }
-
-        .feature {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .feature-icon {
-            width: 28px;
-            height: 28px;
-            color: #1d4ed8;
-        }
-
         footer {
             margin-top: 2rem;
             font-size: 0.85rem;
-            color: #777;
-        }
-
-        /* Ícones simples com CSS */
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: #1d4ed8;
-            border-radius: 50%;
+            color: #aaa;
         }
     </style>
 </head>
 
 <body>
+    <canvas id="stars"></canvas>
+
     <div class="container">
         <h1><?= htmlspecialchars($name) ?>!</h1>
         <p><?= htmlspecialchars($name) ?> é um micro framework criado para estudos. A intenção é desenvolver tudo manualmente sem depender de bibliotecas externas, ideal para aprendizado e projetos leves.</p>
@@ -110,6 +92,53 @@
 
         <footer>&copy; 2025 Mikael Oliveira</footer>
     </div>
-</body>
 
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function randomBlue() {
+            // tons de azul variados
+            const shades = ['#1d4ed8', '#2563eb', '#3b82f6', '#60a5fa', '#93c5fd'];
+            return shades[Math.floor(Math.random() * shades.length)];
+        }
+
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < 200; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5,
+                    speed: Math.random() * 0.5 + 0.1,
+                    color: randomBlue()
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                ctx.fillStyle = star.color;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fill();
+                star.y -= star.speed;
+                if (star.y < 0) star.y = canvas.height;
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        initStars();
+        drawStars();
+    </script>
+</body>
 </html>
